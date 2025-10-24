@@ -37,16 +37,23 @@ router.get('/add', (req, res) => renderFormPage(res));
 router.post('/add', async (req, res) => {
     const {name, student_no, email, phone} = req.body;
 
+    const studentData = {
+        name,
+        studentno : student_no,
+        email,
+        phone
+    }
+
     if(!name || name.trim() == '')
-        return renderFormPage(res, 'Name cannot be empty');
-    if(!student_no || '')
-        return renderFormPage(res, 'Student Number cannot be empty');
+        return renderFormPage(res, 'Name cannot be empty', studentData);
+    if(!student_no || student_no.trim() == '')
+        return renderFormPage(res, 'Student Number cannot be empty', studentData);
     if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-        return renderFormPage(res, 'Invalid email format');
+        return renderFormPage(res, 'Invalid email format', studentData);
     }
     if(!phone || !/^\d+$/.test(phone)){
-        return renderFormPage(res, 'Phone must contain only digits');
-    };
+        return renderFormPage(res, 'Phone must contain only digits', studentData);
+    }
 
     try{
         await database.query(
@@ -81,15 +88,24 @@ router.get('/update/:id', async(req, res) => {
 router.put('/update/:id', async (req, res) => {
     const { name, student_no, email, phone } = req.body;
 
+    // reuse user input
+    const studentData = {
+        id: req.params.id,
+        name,
+        studentno: student_no,
+        email,
+        phone
+    }
+
     if (!name || name.trim() == '')
-        return renderFormPage(res, 'Name cannot be empty', { id: req.params.id });
+        return renderFormPage(res, 'Name cannot be empty', studentData);
     if (!student_no || student_no.trim() == '')
-        return renderFormPage(res, 'Student Number cannot be empty', { id: req.params.id });
+        return renderFormPage(res, 'Student Number cannot be empty', studentData);
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        return renderFormPage(res, 'Invalid email format', { id: req.params.id });
+        return renderFormPage(res, 'Invalid email format', studentData );
     }
     if (!phone || !/^\d+$/.test(phone)) {
-        return renderFormPage(res, 'Phone must contain only digits', { id: req.params.id });
+        return renderFormPage(res, 'Phone must contain only digits', studentData);
     }
 
     try {

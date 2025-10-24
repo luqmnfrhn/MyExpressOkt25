@@ -14,14 +14,29 @@
         <h1><%= title %></h1>
         <p><%= content %></p>
     </div>
-    <div class="student-details">
-        <h2>Student Information</h2>
-        <ul>
-            <li><strong>Name:</strong> <%= student.name %></li>
-            <li><strong>Student Number:</strong> <%= student.studentno %></li>
-            <li><strong>Email:</strong> <%= student.email %></li>
-            <li><strong>Phone:</strong> <%= student.phone %></li>
-        </ul>
+    <div class="details-container">
+    <div class="detail-item">
+        <div class="detail-label">Name</div>
+        <div class="detail-value"><%= student.name %></div>
+    </div>
+    <div class="detail-item">
+        <div class="detail-label">Student Number</div>
+        <div class="detail-value"><%= student.studentno %></div>
+    </div>
+    <div class="detail-item">
+        <div class="detail-label">Email</div>
+        <div class="detail-value"><%= student.email %></div>
+    </div>
+    <div class="detail-item">
+        <div class="detail-label">Phone</div>
+        <div class="detail-value"><%= student.phone %></div>
+    </div>
+    </div>
+    <div class="back-button-container">
+        <a href="/students" class="back-button">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </a>
     </div>
 </body>
 </html>
