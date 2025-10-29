@@ -69,4 +69,8 @@ app.use('/students', studentRoute);
 const studentApiRoute = require('./routes/api/student_api_routes');
 app.use('/api/students', studentApiRoute);
 
+//auth api route
+const authApiRoute = require('./routes/api/auth_api_routes');
+app.use('/api/auth', authApiRoute);
+
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
