@@ -18,6 +18,15 @@ app.use(express.urlencoded({ extended: true}));
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
+const cors = require('cors');
+const corsOptions = {
+    origin: ['http://localhost:3000'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'] // allowed request headers
+};
+app.use(cors(corsOptions));
+
 
 app.get('/about', (req, res) =>{
     res.send('About Us Page');
@@ -72,5 +81,7 @@ app.use('/api/students', studentApiRoute);
 //auth api route
 const authApiRoute = require('./routes/api/auth_api_routes');
 app.use('/api/auth', authApiRoute);
+
+//CORS Middleware
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

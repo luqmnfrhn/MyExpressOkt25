@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const database = require('../../database');
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 const jwt = require('jsonwebtoken');
 
 function verifyToken(req,res, next){
@@ -25,8 +25,8 @@ function verifyToken(req,res, next){
     })
 }
 
-=======
->>>>>>> d3dcb86d123f6728cbb1bae7861a03ea47b0dd61
+// =======
+// >>>>>>> d3dcb86d123f6728cbb1bae7861a03ea47b0dd61
 // Get all students (API)
 router.get('/', async (req, res) => {
     try{
@@ -75,7 +75,6 @@ router.get('/:id', async (req, res) => {
             error:err.message
         })
     }
-<<<<<<< HEAD
 });
 
 // Post add new student (API)
@@ -223,8 +222,8 @@ router.delete('/delete/:id', async(req, res) => {
 
 
 
-=======
-})
 
->>>>>>> d3dcb86d123f6728cbb1bae7861a03ea47b0dd61
+
+
+// >>>>>>> d3dcb86d123f6728cbb1bae7861a03ea47b0dd61
 module.exports = router;
