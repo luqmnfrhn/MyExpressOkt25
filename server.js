@@ -20,7 +20,8 @@ app.use(methodOverride('_method'));
 
 const cors = require('cors');
 const corsOptions = {
-    origin: ['http://localhost:3000'],
+    // the origin link is for frontend application
+    origin: ['http://localhost:4200', 'http://localhost:3000', 'myexpressokt25-production.up.railway.app'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'] // allowed request headers
