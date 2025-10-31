@@ -21,7 +21,8 @@ app.use(methodOverride('_method'));
 const cors = require('cors');
 const corsOptions = {
     // the origin link is for frontend application
-    origin: ['http://localhost:4200', 'http://localhost:3000', 'myexpressokt25-production.up.railway.app', 'https://myangular2025.web.app'],
+    // origin: ['http://localhost:4200', 'http://localhost:3000', 'myexpressokt25-production.up.railway.app', 'https://myangular2025.web.app'],
+    origin: ['https://myangular2025.web.app'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'] // allowed request headers
